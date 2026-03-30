@@ -1,0 +1,29 @@
+hydra:
+  searchpath:
+    - /your_path/mem-plan/verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 24576
+  max_response_length: 8192
+  train_batch_size: 256
+  return_raw_chat: True
+  return_multi_modal_inputs: False
+  custom_cls:
+    path: "/your_path/mem-plan/local_search/mmsearch.py"
+    name: CustomRLHFDataset
+
+actor_rollout_ref:
+  hybrid_engine: True
+  rollout:
+    name: sglang
+    multi_turn:
+      enable: True
+      max_assistant_turns: 5
+
+custom_reward_function:
+  path: "/your_path/mem-plan/local_search/mmsearch.py"
+  name: compute_score
