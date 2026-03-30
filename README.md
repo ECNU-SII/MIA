@@ -1,4 +1,4 @@
-# MIA
+# MIA [中文](./README.md) [英文](./README_EN.md)
 
 ## 工具
 
