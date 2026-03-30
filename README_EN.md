@@ -1,5 +1,7 @@
 # MIA
 
+[[Chinese](./README.md)] [[English](./README_EN.md)]
+
 ## Tools
 
 ### 1. Online Text Search
