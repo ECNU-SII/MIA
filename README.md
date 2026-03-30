@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MIA
 
 ## 工具
@@ -279,3 +280,7 @@ bash serve.sh
 ```bash
 bash ./local_search/run_mmsearch_grpo.sh
 ```
+=======
+# MIA
+Memory Intelligence Agent
+>>>>>>> e8546869da38add48be5e22ab4604ff4b8ed4c16
