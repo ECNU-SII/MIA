@@ -1,2 +1,0 @@
-# MIA
-Memory Intelligence Agent
