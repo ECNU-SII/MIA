@@ -118,7 +118,7 @@ python -m verl.model_merger merge \
     --target_dir /your_path
 ```
 
-Download our trained `Executor` [here]()
+Download our trained `Executor` [here](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Executor)
 
 ---
 
@@ -191,7 +191,7 @@ python -m verl.model_merger merge \
     --target_dir /your_path
 ```
 
-Download our trained `Planner` [here]()
+Download our trained `Planner` [here](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Planner)
 
 ---
 
