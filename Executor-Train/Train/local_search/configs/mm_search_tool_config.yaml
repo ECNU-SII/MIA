@@ -1,0 +1,46 @@
+tools:
+  - class_name: verl.tools.search_tool.SearchTool
+    config:
+      retrieval_service_url: http://127.0.0.1:8001/retrieve
+      num_workers: 30
+      rate_limit: 30
+      timeout: 120
+      type: native
+    tool_schema:
+      type: function
+      function:
+        name: search
+        description: Searches the web for relevant information based on the given query.
+        parameters:
+          type: object
+          properties:
+            query_list:
+              type: array
+              item:
+                type: string
+              description: A list of complete textual queries. Each query must clearly state the topic without referring to images.
+          required: 
+            - query_list
+            
+  - class_name: verl.tools.web_image_to_image_search_tool.WebImageToImageSearchTool
+    config:
+      type: native
+      fvqa_train_cache_path: "/your_path/datasets/FVQA_Cache/fvqa_train_cache"
+      all_train_cache_path: "/your_path/datasets/all_search_results_cache"
+      sim_cache_path: "/your_path/datasets/newvqa/mmsearch_search_results_cache_vnew_sim200"
+      test_cache_path: "/your_path/datasets/FVQA_Cache/fvqa_test_cache"
+      max_images: 3
+    tool_schema:
+      type: function
+      function:
+        name: web_image_to_image_search
+        description: "**IMPORTANT: This tool can only be called once. Do not use it for text-only questions.** Searches for relevant images based on the original image using web search."
+        parameters:
+          type: object
+          properties:
+            img_idx: 
+              type: string
+              description: "A placeholder parameter. The value must always be '0'."
+          required: 
+            - img_idx
+          
