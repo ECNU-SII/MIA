@@ -199,7 +199,7 @@ python -m verl.model_merger merge \
     --target_dir /your_path
 ```
 
-我们训练的 `Planner` [下载](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Planner)
+我们训练的 `Planner` 🤗 [下载](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Planner)
 
 ## 🔍 推理
 
