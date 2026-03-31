@@ -225,7 +225,7 @@ python -m verl.model_merger merge \
     --target_dir /your_path
 ```
 
-Download our trained `Planner` [here](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Planner)
+Download our trained `Planner` 🤗 [here](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Planner)
 
 ## 🔍 Inference
 
