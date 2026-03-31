@@ -126,7 +126,7 @@ python -m verl.model_merger merge \
     --target_dir /your_path
 ```
 
-我们训练的 `Executor` [下载](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Executor)
+我们训练的 `Executor` 🤗 [下载](https://huggingface.co/LightningCreeper/MIA/tree/main/Trained-Executor)
 
 ### ⚡ Planner训练
 
