@@ -4,15 +4,46 @@
 
 <div align="center">
 
-[![Paper](https://img.shields.io/badge/Paper-ComingSoon-b5212f.svg?logo=arxiv)](https://arxiv.org/) [![MIA Models](https://img.shields.io/badge/Models-MIA-yellow?logo=huggingface)](https://huggingface.co/LightningCreeper/MIA) [![MIA Checkpoints](https://img.shields.io/badge/Datasets-MIA-purple?logo=huggingface)](https://huggingface.co/datasets/LightningCreeper/MIA) [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/) [![License](https://img.shields.io/badge/LICENSE-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Paper](https://img.shields.io/badge/Paper-ComingSoon-b5212f.svg?logo=arxiv)](https://arxiv.org/) [![MIA Models](https://img.shields.io/badge/Models-MIA-yellow?logo=huggingface)](https://huggingface.co/LightningCreeper/MIA) [![MIA Checkpoints](https://img.shields.io/badge/Datasets-MIA-purple?logo=huggingface)](https://huggingface.co/datasets/LightningCreeper/MIA) [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/) [![License](https://img.shields.io/badge/LICENSE-MIT-green.svg)](https://opensource.org/licenses/MIT) [![powered-by-sii](https://img.shields.io/badge/Powered%20By-SII-blue?style=plastic)](https://sii-group.com/fr-FR/sii-sud-ouest)
 
 [[English](./README.md)] [[Chinese](./README_CN.md)]
 </div>
+
+<p align="center"><i>An Agent Memory Framework Designed For Deep Research Agents</i></p>
 
 ## 🚀 Latest News
 
 - **[April 1, 2026]**:  🌈 Whole Training and Evaluation Codebase, Models and Datasets are published.
 
+## 📌 Overview
+
+**MIA (Memory In Intelligence Agent)** is a memory framewoek designed for deep research agents. It is developed by a joint team from the **Shanghai Institute of Intelligence (SII)** and **East China Normal University (ECNU)**. To address the limitations of existing agents, such as ineffective memory evolution and expensive storage costs, MIA introduces a sophisticated **Manager-Planner-Executor** architecture. This framework features a Manager for memory storage, a Planner for memory usage, and an Executor for memory-guided inference. MIA’s core innovations include an **Alternative Reinforcement Learning** paradigm for seamless multi-agent cooperation and a **Continual Test-Time Learning** mechanism that allows the Planner to evolve on-the-fly during inference. By establishing a collaborative loop between parametric and non-parametric memories with **Reflection and Unsupervised Judgment**, MIA enables efficient autonomous evolution and robust reasoning in complex, open-world scenarios.
+
+## 🏆 Performance
+
+<h1 align="center"><img src="readme_en/Performance.png" alt="" width="400"/></h1>
+
+**📊 Experimental Analysis**
+
+Our comprehensive evaluation across multiple benchmarks demonstrates that **MIA** significantly improves the performance of Deep Research Agents:
+
+- **Elevating the State-of-the-Art (a & b):** Comparative bar charts on **LiveVQA (text-only)** and **HotpotQA (multimodal, sandbox-based Wiki search)** reveal that MIA consistently boosts the performance of current SOTA Large Language Models, proving its efficacy in both text and complex multimodal reasoning tasks.
+- **The "Small-to-Great" Leap (c):** Utilizing a **Qwen-2.5-VL-7B**-based Executor, MIA enables this 7B model to achieve a staggering performance breakthrough across 7 diverse datasets. Remarkably, the MIA-enhanced 7B model not only outperforms the larger **Qwen-2.5-VL-32B** but also surpasses former closed-source models such as **GPT-4o** and **Gemini 2.5 Pro** (in non-tool-calling settings). This underscores MIA’s ability to unlock "super-model" intelligence within efficient, smaller-scale parameters.
+- **Superiority in Agent Memory (d):** When benchmarked against contemporary SOTA agent memory frameworks using a unified Qwen-2.5-VL-7B Executor, MIA achieves top-tier results across all 7 datasets. These results establish MIA as a new benchmark in memory-augmented architectures, offering unparalleled efficiency and reasoning depth.
+
+## 🦞 OpenClaw Skills
+
+We also provide two MIA versions of OpenClaw skills in , which not only integrates MIA memory framework, but also includes trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos.
+
+MIA Memory Demo:
+<div align="center"> <img src="readme_en/demo1-1.jpg" width="22%"> <img src="readme_en/demo1-2.jpg" width="22%"> <img src="readme_en/demo1-3.jpg" width="22%"> </div>
+
+<div align="center"> <img src="readme_en/demo2-1.jpg" width="22%"> <img src="readme_en/demo2-2.jpg" width="22%"> <img src="readme_en/demo2-3.jpg" width="22%"> <img src="readme_en/demo2-4.jpg" width="22%"> </div>
+
+Trust-Worthy Demo:
+<div align="center"> <img src="readme_en/demo3-1.png" width="22%"> </div>
+
+<div align="center"> <img src="readme_en/demo4-1.png" width="22%"> <img src="readme_en/demo4-2.png" width="22%"> <img src="readme_en/demo4-3.png" width="22%"> </div>
 
 ## 🛠️ Tools
 
@@ -322,3 +353,23 @@ bash ./local_search/run_mmsearch_grpo.sh
 ## ⚖️ License
 
 Released under the MIT License.
+
+## 🎓 Contributors
+
+**PhD Student:** Weicheng Meng, Yu Cheng, Zhihang Lin
+
+**Student Leader:** Jingyang Qiao
+
+**Professor:** Zhizhong Zhang, Xin Tan, Jingyu Gong, Zhaoxia Yin
+
+**Projector Leader:** Yuan Xie
+
+## 🎯 To-Do List
+
+We also plan to release the following next versions:
+
+1. High-Efficiency Version
+
+2. Trust-worthy Version
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ECNU-SII/MIA&type=Date)](https://star-history.com/ECNU-SII/MIA&Date)
