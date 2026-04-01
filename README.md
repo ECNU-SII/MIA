@@ -21,7 +21,7 @@
 
 ## 🏆 Performance
 
-<h1 align="center"><img src="readme_en/Performance.png" alt="" width="400"/></h1>
+<h1 align="center"><img src="readme_en/Performance.png" alt="" width="1000"/></h1>
 
 **📊 Experimental Analysis**
 
