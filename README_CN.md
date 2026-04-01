@@ -20,7 +20,7 @@
 
 ## 🏆 性能
 
-<h1 align="center"><img src="readme_en/Performance.png" alt="" width="400"/></h1>
+<h1 align="center"><img src="readme_en/Performance.png" alt="" width="1000"/></h1>
 
 **📥 实验结论**
 - **SOTA性能再突破 (a & b)：**在**LiveVQA(纯文本)**与**HotpotQA(多模态沙盒搜索)**的对比实验中，MIA显著提升了现有最先进LLMs的表现，证明了其在多维任务中的普适增强能力。
@@ -30,8 +30,6 @@
 ## 🦞 OpenClaw技能
 
 我们也提供了两个基于MIA的OpenClaw技能版本，它们不仅整合了MIA存储框架，还包含了基于可信驱动的校正机制。以下是MIA存储和可信的演示示例。
-
-<h1 align="center"><img src="readme_en/MIA-OpenClaw.png" alt="" width="400"/></h1>
 
 **存储示例：**
 
@@ -43,7 +41,7 @@
 
 <div align="center"> <img src="readme_en/demo3-1.png" width="33%"> </div>
 
-<div align="center"> <img src="readme_en/demo4-1.png" width="25%"> <img src="readme_en/demo4-2.png" width="25%"> <img src="readme_en/demo4-3.png" width="25%"> <img src="readme_en/demo4-4.png" width="25%"> </div>
+<div align="center"> <img src="readme_en/demo4-1.png" width="33%"> <img src="readme_en/demo4-2.png" width="33%"> <img src="readme_en/demo4-3.png" width="33%"> </div>
 
 ## 🛠️ 工具
 
