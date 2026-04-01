@@ -33,15 +33,15 @@
 
 **存储示例：**
 
-<div align="center"> <img src="readme_en/demo1-1.jpg" width="33%"> <img src="readme_en/demo1-2.jpg" width="33%"> <img src="readme_en/demo1-3.jpg" width="33%"> </div>
+<div align="center"> <img src="readme_en/demo1-1.jpg" width="22%"> <img src="readme_en/demo1-2.jpg" width="22%"> <img src="readme_en/demo1-3.jpg" width="22%"> </div>
 
-<div align="center"> <img src="readme_en/demo2-1.jpg" width="25%"> <img src="readme_en/demo2-2.jpg" width="25%"> <img src="readme_en/demo2-3.jpg" width="25%"> <img src="readme_en/demo2-4.jpg" width="25%"> </div>
+<div align="center"> <img src="readme_en/demo2-1.jpg" width="22%"> <img src="readme_en/demo2-2.jpg" width="22%"> <img src="readme_en/demo2-3.jpg" width="22%"> <img src="readme_en/demo2-4.jpg" width="22%"> </div>
 
 **可信示例：**
 
-<div align="center"> <img src="readme_en/demo3-1.png" width="33%"> </div>
+<div align="center"> <img src="readme_en/demo3-1.png" width="22%"> </div>
 
-<div align="center"> <img src="readme_en/demo4-1.png" width="33%"> <img src="readme_en/demo4-2.png" width="33%"> <img src="readme_en/demo4-3.png" width="33%"> </div>
+<div align="center"> <img src="readme_en/demo4-1.png" width="22%"> <img src="readme_en/demo4-2.png" width="22%"> <img src="readme_en/demo4-3.png" width="22%"> </div>
 
 ## 🛠️ 工具
 
