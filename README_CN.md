@@ -4,14 +4,46 @@
 <div align="center">
 
 
-[![Paper](https://img.shields.io/badge/Paper-ComingSoon-b5212f.svg?logo=arxiv)](https://arxiv.org/) [![MIA Models](https://img.shields.io/badge/Models-MIA-yellow?logo=huggingface)](https://huggingface.co/LightningCreeper/MIA) [![MIA Checkpoints](https://img.shields.io/badge/Datasets-MIA-purple?logo=huggingface)](https://huggingface.co/datasets/LightningCreeper/MIA) [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/) [![License](https://img.shields.io/badge/LICENSE-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Paper](https://img.shields.io/badge/Paper-ComingSoon-b5212f.svg?logo=arxiv)](https://arxiv.org/) [![MIA Models](https://img.shields.io/badge/Models-MIA-yellow?logo=huggingface)](https://huggingface.co/LightningCreeper/MIA) [![MIA Checkpoints](https://img.shields.io/badge/Datasets-MIA-purple?logo=huggingface)](https://huggingface.co/datasets/LightningCreeper/MIA) [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/) [![License](https://img.shields.io/badge/LICENSE-MIT-green.svg)](https://opensource.org/licenses/MIT) [![powered-by-sii](https://img.shields.io/badge/Powered%20By-SII-blue?style=plastic)](https://sii-group.com/fr-FR/sii-sud-ouest)
 
 [[英文](./README.md)] [[中文](./README_CN.md)]
 
 </div>
 
+<p align="center"><i>一个专为深度研究型智能体设计的记忆框架</i></p>
+
 ## 🚀 新闻
 - **[April 1, 2026]**:  🌈 完整的训练，评估代码和模型以及数据集已在Huggingface上公布。
+
+## 📌 简介
+**MIA (Memory In Intelligence Agent)**是由**上海创智学院(SII)**与**华东师范大学(ECNU)**联合团队开发的一种新型的深度研究记忆智能体框架。针对现有智能体记忆系统存在的存储成本高昂、记忆进化低效等瓶颈，MIA提出了独特的**“管理器-规划器-执行器”三层架构**：通过管理器存储压缩历史轨迹，规划器基于历史轨迹启发生成搜索方案，并由执行器根据方案完成深度研究。该框架的核心突破在于采用了**交替强化学习**范式来增强模块间的协同推理，并引入了**可持续的测试时学习**技术，使 规划器能够在推理过程中即时进化。此外，通过建立参数化与非参数化记忆的协同闭环，配合**反思与无监督判断机制**，MIA实现了在开放世界环境下的高效自主进化与精准推理。
+
+## 🏆 性能
+
+<h1 align="center"><img src="readme_en/Performance.png" alt="" width="400"/></h1>
+
+**📥 实验结论**
+- **SOTA性能再突破 (a & b)：**在**LiveVQA(纯文本)**与**HotpotQA(多模态沙盒搜索)**的对比实验中，MIA显著提升了现有最先进LLMs的表现，证明了其在多维任务中的普适增强能力。
+- **实现小尺寸模型的跨级超越 (c)：**基于**Qwen-2.5-VL-7B**执行器的MIA模型在7个核心数据集上表现卓越。实验证明，MIA助力7B模型实现了质的性能飞跃，其表现不仅优于**32B开源模型**，甚至超越了**GPT-4o**和**Gemini 2.5 Pro(不调用搜索工具)**等顶级闭源大模型，展现了极高的参数效率。
+- **记忆方法的新标杆 (d)：**在与当前所有最先进的智能体记忆方法的横向评测中，MIA在全部7个数据集上均取得最佳性能，有力证明了其在记忆演化上的卓越性。
+
+## 🦞 OpenClaw技能
+
+我们也提供了两个基于MIA的OpenClaw技能版本，它们不仅整合了MIA存储框架，还包含了基于可信驱动的校正机制。以下是MIA存储和可信的演示示例。
+
+<h1 align="center"><img src="readme_en/MIA-OpenClaw.png" alt="" width="400"/></h1>
+
+**存储示例：**
+
+<div align="center"> <img src="readme_en/demo1-1.jpg" width="33%"> <img src="readme_en/demo1-2.jpg" width="33%"> <img src="readme_en/demo1-3.jpg" width="33%"> </div>
+
+<div align="center"> <img src="readme_en/demo2-1.jpg" width="25%"> <img src="readme_en/demo2-2.jpg" width="25%"> <img src="readme_en/demo2-3.jpg" width="25%"> <img src="readme_en/demo2-4.jpg" width="25%"> </div>
+
+**可信示例：**
+
+<div align="center"> <img src="readme_en/demo3-1.png" width="33%"> </div>
+
+<div align="center"> <img src="readme_en/demo4-1.png" width="25%"> <img src="readme_en/demo4-2.png" width="25%"> <img src="readme_en/demo4-3.png" width="25%"> <img src="readme_en/demo4-4.png" width="25%"> </div>
 
 ## 🛠️ 工具
 
@@ -297,3 +329,22 @@ bash ./local_search/run_mmsearch_grpo.sh
 ## ⚖️ 许可
 
 该项目遵循MIT许可协议发布。
+
+## 🎓 感谢以下对项目做成贡献的团队成员
+
+**博士研究生:** 孟炜程, 程宇, 林志航
+
+**学生负责人:** 乔静阳
+
+**项目组成员:** 张志忠, 谭鑫, 龚靖渝, 殷赵霞
+
+**项目负责人:** 谢源
+
+## 🎯 下一步计划
+
+我们即将发布:
+
+1. 高效版本的MIA代码仓库
+2. 可信版本的MIA代码仓库
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ECNU-SII/MIA&type=Date)](https://star-history.com/ECNU-SII/MIA&Date)
