@@ -372,4 +372,6 @@ We also plan to release the following next versions:
 
 2. Trust-worthy Version
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ECNU-SII/MIA&type=Date)](https://star-history.com/ECNU-SII/MIA&Date)
+<a href="https://star-history.com/#ECNU-SII/MIA&Date">
+  <img src="https://api.star-history.com/svg?repos=ECNU-SII/MIA&type=Date" />
+</a>
