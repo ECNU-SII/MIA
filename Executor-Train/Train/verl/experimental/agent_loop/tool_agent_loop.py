@@ -373,7 +373,6 @@ class ToolAgentLoop(AgentLoopBase):
                                     )
                                 response_ids = response_ids[len(self.system_prompt) :]
                                 model_max_len = int(os.getenv("MODEL_MAX_LEN", 32768)) - 10
-                                print(len(agent_data.prompt_ids) , len(response_ids), model_max_len - len(agent_data.prompt_ids) - len(response_ids))
                                 if len(agent_data.prompt_ids) + len(response_ids) >= model_max_len or len(response_ids) > 500:
                                     state =  AgentState.TERMINATED
                                     break
