@@ -13,11 +13,23 @@
 
 ## 🚀 Latest News
 
-- **[April 1, 2026]**:  🌈 Whole Training and Evaluation Codebase, Models and Datasets are published.
+- **[April 1, 2026]**:  🌈 The full stack is here. Whole Training and Evaluation Codebase, Models and Datasets have been published. Check them out!
+- **[April 3, 2026]**:  🦞 Guess what? OpenClaw skill MIA-v1 has just landed on Clawhub. Download now and see the magic of memory for yourself!
 
 ## 📌 Overview
 
-**MIA (Memory In Intelligence Agent)** is a memory framewoek designed for deep research agents. It is developed by a joint team from the **Shanghai Institute of Intelligence (SII)** and **East China Normal University (ECNU)**. To address the limitations of existing agents, such as ineffective memory evolution and expensive storage costs, MIA introduces a sophisticated **Manager-Planner-Executor** architecture. This framework features a Manager for memory storage, a Planner for memory usage, and an Executor for memory-guided inference. MIA’s core innovations include an **Alternative Reinforcement Learning** paradigm for seamless multi-agent cooperation and a **Continual Test-Time Learning** mechanism that allows the Planner to evolve on-the-fly during inference. By establishing a collaborative loop between parametric and non-parametric memories with **Reflection and Unsupervised Judgment**, MIA enables efficient autonomous evolution and robust reasoning in complex, open-world scenarios.
+Are you tired of deep research agents that "understand" everything but "remember" nothing? Does your agent struggle with diluted attention in sea of long-form text? Are you frustrated by reasoning failures caused by noisy, irrelevant memories? Do you find your agent memory crippled by skyrocketing computational costs and the logistical nightmare of ever-growing context histories? Most importantly: Is your agent stuck memorizing "what" the result is, while completely failing to learn "how" to get there? If so, you are witnessing the fundamental bottleneck of current agent memory: an incompetent Planner retrieving memories from bloated memory and using non-comprehensive in-context prompts to guide an unprepared Executor in conducting deep research.
+
+**MIA (Memory In Intelligence Agent)** is a memory framewoek designed for deep research agents. It is developed by a joint team from the **Shanghai Institute of Intelligence (SII)** and **East China Normal University (ECNU)**., MIA is a paradigm-shifting framework designed to transform agents from "passive record-keepers" into "active strategists." MIA replaces the chaotic "memory dump" with a sophisticated **Manager-Planner-Executor** architecture:
+
+- **The Manager**: The ultimate librarian, optimizing memory storage to eliminate bloat.
+- **The Planner**: The tactical brain that doesn't just "recall," but evolves its strategy on-the-fly via Continual Test-Time Learning.
+- **The Executor**: A precision instrument trained to interpret and follow complex research blueprints with zero friction.
+
+🌟 **Key Highlights**
+- 🧬 **From Growth to Evolution**: MIA moves beyond "ever-growing contexts" to strategy-oriented wisdom. By establishing a collaborative loop between parametric and non-parametric memories, agents autonomously evolve in complex, open-world scenarios.
+- 🔬 **Seamless Synergy via RL**: MIA breaks the stagnation of static memory through an Alternative Reinforcement Learning paradigm. This ensures the Manager, Planner, and Executor act as one cohesive mind, achieving fluid multi-agent cooperation that prior works lack.
+- 🧠 **Dynamic Intelligence**: Unlike static models, MIA features Continual Test-Time Learning, allowing the Planner to adapt and optimize its research strategies on-the-fly during inference.
 
 ## 🏆 Performance
 
@@ -33,7 +45,7 @@ Our comprehensive evaluation across multiple benchmarks demonstrates that **MIA*
 
 ## 🦞 OpenClaw Skills
 
-We also provide two MIA versions of OpenClaw skills in , which not only integrates MIA memory framework, but also includes trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos.
+We also provide two MIA versions of OpenClaw skills in [Original Version](https://clawhub.ai/sii-yucheng2002/mia-trust) and [Trust-Worthy Version](https://clawhub.ai/sii-yucheng2002/mia-trust), which not only integrate MIA memory framework, but also include trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos.
 
 MIA Memory Demo:
 <div align="center"> <img src="readme_en/demo1-1.jpg" width="22%"> <img src="readme_en/demo1-2.jpg" width="22%"> <img src="readme_en/demo1-3.jpg" width="22%"> </div>
