@@ -41,7 +41,7 @@
 
 ## 🦞 OpenClaw技能
 
-我们也提供了两个基于MIA的OpenClaw技能版本:[纯净版本](https://clawhub.ai/sii-yucheng2002/mia-trust)和[可信版本](https://clawhub.ai/sii-yucheng2002/mia-trust)，它们不仅整合了MIA存储框架，还包含了基于可信驱动的校正机制。以下是MIA存储和可信的演示示例。
+我们也提供了两个基于MIA的OpenClaw技能版本: [纯净版本](https://clawhub.ai/sii-yucheng2002/mia-trust)和[可信版本](https://clawhub.ai/sii-yucheng2002/mia-trust)，它们不仅整合了MIA存储框架，还包含了基于可信驱动的校正机制。以下是MIA存储和可信的演示示例。
 
 **存储示例：**
 
