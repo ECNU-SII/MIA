@@ -22,9 +22,9 @@ Are you tired of deep research agents that "understand" everything but "remember
 
 **MIA (Memory In Intelligence Agent)** is a memory framewoek designed for deep research agents. It is developed by a joint team from the **Shanghai Institute of Intelligence (SII)** and **East China Normal University (ECNU)**., MIA is a paradigm-shifting framework designed to transform agents from "passive record-keepers" into "active strategists." MIA replaces the chaotic "memory dump" with a sophisticated **Manager-Planner-Executor** architecture:
 
-- **The Manager**: The ultimate librarian, optimizing memory storage to eliminate bloat.
-- **The Planner**: The tactical brain that doesn't just "recall," but evolves its strategy on-the-fly via Continual Test-Time Learning.
-- **The Executor**: A precision instrument trained to interpret and follow complex research blueprints with zero friction.
+- **The Manager**: Ultimate librarian that optimizes memory storage to eliminate bloat.
+- **The Planner**: Tactical brain that doesn't just "recall," but evolves its strategy on-the-fly via Continual Test-Time Learning.
+- **The Executor**: Precision instrument that interprets and follows complex research blueprints with zero friction.
 
 🌟 **Key Highlights**
 - 🧬 **From Growth to Evolution**: MIA moves beyond "ever-growing contexts" to strategy-oriented wisdom. By establishing a collaborative loop between parametric and non-parametric memories, agents autonomously evolve in complex, open-world scenarios.
