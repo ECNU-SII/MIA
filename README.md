@@ -13,8 +13,8 @@
 
 ## 🚀 Latest News
 
-- **[April 1, 2026]**:  🌈 The full stack is here. Whole Training and Evaluation Codebase, Models and Datasets have been published. Check them out!
-- **[April 3, 2026]**:  🦞 Guess what? OpenClaw skill MIA-v1 has just landed on Clawhub. Download now and see the magic of memory for yourself!
+- **[April 1, 2026]**:  🌈 Full stack is here. Whole Training and Evaluation Codebase, Models and Datasets have been published. Check them out!
+- **[April 3, 2026]**:  🦞 Guess what? OpenClaw skill MIA-v1 has landed on Clawhub. Download now and see the magic of memory for yourself!
 
 ## 📌 Overview
 
