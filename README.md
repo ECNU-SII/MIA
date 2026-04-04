@@ -39,7 +39,7 @@ Are you tired of deep research agents that "understand" everything but "remember
 
 Our comprehensive evaluation across multiple benchmarks demonstrates that **MIA** significantly improves the performance of Deep Research Agents:
 
-- **Elevating the State-of-the-Art (a & b):** Comparative bar charts on **LiveVQA (text-only)** and **HotpotQA (multimodal, sandbox-based Wiki search)** reveal that MIA consistently boosts the performance of current SOTA Large Language Models, proving its efficacy in both text and complex multimodal reasoning tasks.
+- **Elevating the State-of-the-Art (a & b):** Comparative bar charts on **LiveVQA (multimodal)** and **HotpotQA (text-only, sandbox-based Wiki search)** reveal that MIA consistently boosts the performance of current SOTA Large Language Models, proving its efficacy in both text and complex multimodal reasoning tasks.
 - **The "Small-to-Great" Leap (c):** Utilizing a **Qwen-2.5-VL-7B**-based Executor, MIA enables this 7B model to achieve a staggering performance breakthrough across 7 diverse datasets. Remarkably, the MIA-enhanced 7B model not only outperforms the larger **Qwen-2.5-VL-32B** but also surpasses former closed-source models such as **GPT-4o** and **Gemini 2.5 Pro** (in non-tool-calling settings). This underscores MIA’s ability to unlock "super-model" intelligence within efficient, smaller-scale parameters.
 - **Superiority in Agent Memory (d):** When benchmarked against contemporary SOTA agent memory frameworks using a unified Qwen-2.5-VL-7B Executor, MIA achieves top-tier results across all 7 datasets. These results establish MIA as a new benchmark in memory-augmented architectures, offering unparalleled efficiency and reasoning depth.
 
