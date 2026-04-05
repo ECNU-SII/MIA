@@ -45,7 +45,7 @@ Our comprehensive evaluation across multiple benchmarks demonstrates that **MIA*
 
 ## 🦞 OpenClaw Skills
 
-We also provide two MIA versions of OpenClaw skills in [Original Version](https://clawhub.ai/sii-yucheng2002/mia-trust) and [Trust-Worthy Version](https://clawhub.ai/sii-yucheng2002/mia-trust), which not only integrate MIA memory framework, but also include trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos.
+We also provide two MIA versions of OpenClaw skills in [Original Version](https://clawhub.ai/jingyangqiao/mia) and [Trust-Worthy Version](https://clawhub.ai/sii-yucheng2002/mia-trust), which not only integrate MIA memory framework, but also include trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos.
 
 MIA Memory Demo:
 <div align="center"> <img src="readme_en/demo1-1.jpg" width="22%"> <img src="readme_en/demo1-2.jpg" width="22%"> <img src="readme_en/demo1-3.jpg" width="22%"> </div>
