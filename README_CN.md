@@ -50,7 +50,7 @@
 </div>
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/ad8d5517-b057-421c-8a2f-6289127c8ef9" />
+  <video src="https://github.com/user-attachments/assets/332693a8-c229-4e2c-b542-ca0a0356dda3" />
 </div>
 
 **可信示例：**
