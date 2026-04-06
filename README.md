@@ -54,7 +54,7 @@ MIA Memory Demo:
 
 Trust-Worthy Demo:
 <div align="center">
-  <video src="readme_en/MIA-OpenClaw3.mov" />
+  <video src="https://github.com/ECNU-SII/MIA/readme_en/MIA-OpenClaw3.mov" />
 </div>
 
 ## 🛠️ Tools
