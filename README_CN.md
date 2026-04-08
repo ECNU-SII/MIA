@@ -35,7 +35,7 @@
 <h1 align="center"><img src="readme_en/Performance.png" alt="" width="1000"/></h1>
 
 **📥 实验结论**
-- **SOTA性能再突破(a & b)**：在**LiveVQA**(多模态)与**HotpotQA**(纯文本沙盒搜索)的对比实验中，MIA显著**提升了现有最先进LLMs（GPT-5.4, Gemini-3-Flash, claude-sonnet-4.6）的表现**，证明了其在多维任务中的普适增强能力。
+- **SOTA性能再突破(a & b)**：在**LiveVQA**(多模态在线搜索)与**HotpotQA**(纯文本沙盒搜索)的对比实验中，MIA显著**提升了现有最先进LLMs（GPT-5.4, Gemini-3-Flash, claude-sonnet-4.6）的表现**，证明了其在多维任务中的普适增强能力。
 - **实现小尺寸模型的跨级超越(c)**：基于Qwen-2.5-VL-7B执行器的MIA模型在7个核心数据集上表现卓越。实验证明，MIA助力7B模型实现了质的性能飞跃，其**表现超越了GPT-5.4，GPT-4o和Gemini-2.5-Pro（不调用搜索工具），逼近了Gemini-3-Flash（不调用搜索工具）** 等顶级闭源大模型。
 - **记忆方法的新标杆(d)**：在与当前最先进的智能体记忆方法的横向评测中，MIA在全部7个数据集上均取得最佳性能，有力证明了其在记忆演化上的卓越性。
 
