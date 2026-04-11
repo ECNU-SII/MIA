@@ -55,7 +55,7 @@ DEFAULT_HEADERS = {
 }
 
 # Serper API Key
-SERPER_API_KEY = os.getenv("SERPER_API_KEY", "56905954592e7ddd858b05fc241a42d83e4c2887")
+SERPER_API_KEY = os.getenv("SERPER_API_KEY", "your_key")
 
 # 图床服务器URL（这里使用一个示例服务，实际使用时应替换为真实的图床服务）
 IMAGE_HOSTING_URL = os.getenv("IMAGE_HOSTING_URL", "https://api.imgbb.com/1/upload")
