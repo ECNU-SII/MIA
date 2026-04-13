@@ -2,9 +2,6 @@
 
 set -x
 
-
-export WANDB_API_KEY=""
-
 export JUDGE_URL="JUDGE_URL/8002/v1"
 
 export TTRL_AGENT_BASE="TTRL_AGENT_BASE/5000"
