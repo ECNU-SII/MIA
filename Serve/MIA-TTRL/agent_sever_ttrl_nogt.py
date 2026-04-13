@@ -214,32 +214,32 @@ class MemoryProcessor:
             "judgement_nogt": judgement_nogt,
             "judgement_data": judgement_data
         }
-        # if bucket.get_size() > 0:
-        #     q_query_vec = q_vec.unsqueeze(0)
-        #     with torch.no_grad():
-        #         sim_q = F.cosine_similarity(q_query_vec, bucket.question_embeddings)  # (N,)
-        #         if image_caption.strip():
-        #             ic_query_vec = ic_vec.unsqueeze(0)
-        #             sim_ic = F.cosine_similarity(ic_query_vec, bucket.caption_embeddings)
-        #             total_sim = self.question_weight * sim_q + self.caption_weight * sim_ic
-        #         else:
-        #             total_sim = sim_q
-        #     max_sim, max_idx = torch.max(total_sim, dim=0)
-        #     if max_sim.item() >= 0.9999:
-        #         existing_entry = bucket.memory_data[max_idx.item()]
-        #         if existing_entry["win_rate"] < 0.7:
-        #             if existing_entry["judgement_nogt"] == "incorrect":
-        #                 bucket.update_entry(max_idx.item(), q_vec, ic_vec, new_entry)
-        #                 logger.info(f"Updated incorrect memory in {modality}/{category}")
-        #             else:
-        #                 old_len = self._count_words(existing_entry["workflow_summary"])
-        #                 new_len = self._count_words(workflow_summary)
-        #                 if new_len < old_len:
-        #                     bucket.update_entry(max_idx.item(), q_vec, ic_vec, new_entry)
-        #                     logger.info(f"Replaced correct memory with shorter version in {modality}/{category}")
-        #                 else:
-        #                     logger.info(f"Kept existing correct memory (shorter or equal)")
-        #             return
+        if bucket.get_size() > 0:
+            q_query_vec = q_vec.unsqueeze(0)
+            with torch.no_grad():
+                sim_q = F.cosine_similarity(q_query_vec, bucket.question_embeddings)  # (N,)
+                if image_caption.strip():
+                    ic_query_vec = ic_vec.unsqueeze(0)
+                    sim_ic = F.cosine_similarity(ic_query_vec, bucket.caption_embeddings)
+                    total_sim = self.question_weight * sim_q + self.caption_weight * sim_ic
+                else:
+                    total_sim = sim_q
+            max_sim, max_idx = torch.max(total_sim, dim=0)
+            if max_sim.item() >= 0.9999:
+                existing_entry = bucket.memory_data[max_idx.item()]
+                if existing_entry["win_rate"] < 0.7:
+                    if existing_entry["judgement_nogt"] == "incorrect":
+                        bucket.update_entry(max_idx.item(), q_vec, ic_vec, new_entry)
+                        logger.info(f"Updated incorrect memory in {modality}/{category}")
+                    else:
+                        old_len = self._count_words(existing_entry["workflow_summary"])
+                        new_len = self._count_words(workflow_summary)
+                        if new_len < old_len:
+                            bucket.update_entry(max_idx.item(), q_vec, ic_vec, new_entry)
+                            logger.info(f"Replaced correct memory with shorter version in {modality}/{category}")
+                        else:
+                            logger.info(f"Kept existing correct memory (shorter or equal)")
+                    return
         bucket.add_entry(q_vec, ic_vec, new_entry)
         logger.info(f"Added new memory to {modality}/{category}. Total: {bucket.get_size()}")
         print(used_memory_indices)
