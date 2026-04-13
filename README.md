@@ -286,7 +286,9 @@ Download our trained `Planner` 🤗 [here](https://huggingface.co/LightningCreep
 - [ours (no TTRL)](./readme_en/MIA.md)
 - [ours (no TTRL and no GT)](./readme_en/MIA-nogt.md)
 
-## 💡 TTRL
+## 💡 TTRL (Development)
+
+This section introduces the `TTRL` code used for developer performance validation. Its core implementation is based on an improved `veRL` framework, which first loads the policy model (i.e., the Planner), then reads the test set, and synchronously completes the following during a single-round (1-epoch) inference process: outputting validation results, storing explicit memory (workflows compressed by `Memory Manager`), and updating implicit memory (parameters of the policy model).
 
 **1.** Deploy the `Memory Manager & Judger` service on Node 1:
 
@@ -365,6 +367,102 @@ bash serve.sh
 ```bash
 bash ./local_search/run_mmsearch_grpo.sh
 ```
+
+## 💡 TTRL-streaming (Application)
+
+This section introduces the `TTRL-streaming` code designed for end users. We decouple the original `veRL` framework into a server side and a client side: the server loads the policy model and remains on standby; the client handles user interactions and streams input data and user feedback to the server in real time, driving the coordinated update of explicit memory (memory archives) and implicit memory (policy model parameters). Users can customize the feedback mechanism and reward format to flexibly adapt to different application scenarios.
+
+**1.** Deploy the `Memory Manager & Judger` service on Node 1:
+```` bash
+export VLLM_USE_FLASHINFER_SAMPLER=0
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+vllm serve /your_path/Qwen/Qwen3-32B \
+    --tensor-parallel-size 4 \
+    --served-model-name "qwen" \
+    --gpu-memory-utilization 0.8 \
+    --host 0.0.0.0 \
+    --port 8002
+````
+
+**2.** Deploy the Executor service on Node 2:
+```` bash
+export VLLM_USE_FLASHINFER_SAMPLER=0
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+vllm serve /your_path/Executor \
+    --tensor-parallel-size 4 \
+    --served-model-name "qwen" \
+    --gpu-memory-utilization 0.8 \
+    --host 0.0.0.0 \
+    --port 8002
+````
+Open `/Serve/MIA-TTRL` and configure the run script `serve_streaming.sh`:
+- `AGENT_URL`: `URL` of the `Executor` service
+- `SERVICE_URL`: `URL` of the text search (offline/online) service
+- `TEST_CACHE_DIR`: Cache path for image-to-image search
+- `MAX_LLM_CALL_PER_RUN`: Maximum number of interaction rounds between `Executor` and tools
+- `MEMORY_URL`: `URL` of the `Memory Manager` service
+- `TTRL_SAVE`: Output path during exploration
+
+For text search settings in `/Serve/MIA-TTRL/call_agent.py` (choose one):
+```` python
+from tool_search_local import *   # Offline text search
+from tool_serper import *   # Online text search
+````
+
+If you encounter out-of-memory (OOM) errors during runtime, you can modify the device for loading `embedding` in `/Serve/MIA-TTRL/agent_serve_ttrl_streaming.py` to `cpu`:
+```` bash
+class MemoryProcessor:
+    def __init__(self):
+        """Initialize the OpenAI client based on model configuration."""
+        self.model_name = MODEL_NAME
+        bert_path = "/your_path/bert/sup-simcse-bert-base-uncased"
+        # self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cpu" # Disable adaptive selection, always load on CPU
+````
+
+**3.** Configure the server-side script `/TTRL-streaming/run_streaming_ttrl_server.sh`:
+
+- `JUDGE_URL`: Judge service, set to `your_url/8002/v1`
+- `TTRL_AGENT_BASE`: `TTRL-streaming` service, set to `your_url/5000`
+- `GT_REWARD_URL`: Service for receiving reward signals, set to `your_url/5000/plan`
+- `WANDB_API_KEY`: `WandB API` key (optional)
+- `SAVE_CHECKPOINT_DIR`: Model save path
+- `REF_MODEL_PATH`: Initial Planner path
+- `data.train_batch_size`: `batch_size` used when updating parameters
+- `actor_rollout_ref.actor.optim.lr`: Learning rate when updating parameters
+- `actor_rollout_ref.rollout.n`: Number of `rollout` iterations for the `GRPO` method
+
+Launch on Node 3:
+```` bash
+bash run_streaming_ttrl_server.sh
+````
+
+**4.** Configure the reward service (user feedback) `/TTRL-streaming/`:
+
+- `TTRL-streaming/run_gt_reward_server.sh`
+  - `JUDGE_URL`: Judge service, set to `your_url/8002/v1`
+- `TTRL-streaming/gt_reward_core.py`: Can be modified to implement custom user feedback/reward patterns
+
+Launch on Node 3:
+```` bash
+bash run_gt_reward_server.sh
+````
+
+**5.** Configure the client-side script `/TTRL-streaming/run_streaming_ttrl_client.sh`:
+
+- `JUDGE_URL`: Judge service, set to `your_url/8002/v1`
+- `TTRL_AGENT_BASE`: `TTRL-streaming` service, set to `your_url/5000`
+- `GT_REWARD_URL`: Service for receiving reward signals, set to `your_url/5000/plan`
+- `REF_MODEL_PATH`: Initial Planner path
+- `TTRL_SERVER`: `URL` of the `veRL` server, set to `http://127.0.0.1:8765`
+- `DATASET_TRAIN`: Dataset path
+- `SAVE_STEP`: Save interval for the policy model
+- `CLIENT_BATCH_SIZE`: Client parallelism count; must be divisible by `data.train_batch_size` (the minimum number of samples required for one update) set on the server side
+
+Launch on Node 3:
+```` bash
+bash run_streaming_ttrl_client.sh
+````
 
 ## ⚖️ License
 
