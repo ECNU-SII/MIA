@@ -84,7 +84,7 @@ Service `SERVICE_URL/server`, method `SERVICE_URL/server/search`
 ### 2. Offline Text Search 📖
 
 The core implementation is mainly in `local_search`.
-Refer to the setup instructions in [search-r1](https://github.com/PeterGriffinJin/Search-R1/blob/main). This project uses wiki25 local retrieval.
+Refer to the setup instructions in [search-r1](https://github.com/PeterGriffinJin/Search-R1/blob/main). This project uses [wiki25](https://huggingface.co/datasets/XLDDD/wiki25) local retrieval.
 Configure the path and start the run script:
 
 ```bash
