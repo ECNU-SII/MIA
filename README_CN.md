@@ -76,7 +76,7 @@ bash ./run.sh
 
 ### 2. 离线文本搜索 📖
 核心实现主要在 `local_search` 中。
-参照[search-r1](https://github.com/PeterGriffinJin/Search-R1/blob/main)里面的搭建方式，本项目使用的是wiki25本地检索。
+参照[search-r1](https://github.com/PeterGriffinJin/Search-R1/blob/main)里面的搭建方式，本项目使用的是[wiki25](https://huggingface.co/datasets/XLDDD/wiki25)本地检索。
 配置路径，启动运行脚本
 ```bash
 cd local_search
