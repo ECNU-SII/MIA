@@ -13,6 +13,7 @@
 <p align="center"><i>一个专为深度研究型智能体设计的记忆框架</i></p>
 
 ## 🚀 新闻
+- **[April 14, 2026]**: 💡 发布面向用户的流式TTRL代码，支持动态加载数据与自定义奖励。
 - **[April 3, 2026]**:  🦞 OpenClaw MIA技能现已正式登陆Clawhub。立即下载，体验智能记忆体的魅力！
 - **[April 1, 2026]**:  🌈 全栈已发布。完整的训练与评估代码、模型及数据集均已同步上线。欢迎查阅！
 
@@ -267,7 +268,9 @@ python -m verl.model_merger merge \
 
 - [ours (no TTRL and no GT)](./readme_cn/MIA-nogt.md)
 
-## 💡 TTRL
+## 💡 TTRL (开发)
+
+本节将介绍用于开发人员验证性能的 `TTRL` 代码。其核心实现基于改进版的 `veRL` 框架，首先加载策略模型（即 Planner），然后读取测试集，在单轮（1-epoch）推理过程中同步完成：输出验证结果、存储显式记忆（ `Memory Manager` 压缩的工作流），更新隐式记忆（策略模型的参数）。
 
 **1.** 在节点1上部署 `Memory Manager & Judger` 服务：
 ``` bash
@@ -338,6 +341,104 @@ bash serve.sh
 打开 `/TTRL/TTRL/` 或 `/TTRL/TTRL-nogt/` 目录
 ```bash
 bash ./local_search/run_mmsearch_grpo.sh
+```
+
+## 💡 TTRL-streaming (应用)
+
+本节将介绍面向用户的 `TTRL-streaming` 代码。我们将原始的 `veRL` 框架解耦为服务端与客户端两部分：服务端加载策略模型并处于待机状态；客户端则处理用户交互，将输入数据及用户反馈实时传递至服务端，以驱动显式记忆（记忆存档）和隐式记忆（策略模型参数）的协同更新。用户可自定义反馈机制与奖励形式，灵活适配不同应用场景。
+
+**1.** 在节点1上部署 `Memory Manager & Judger` 服务：
+``` bash
+export VLLM_USE_FLASHINFER_SAMPLER=0
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+vllm serve /your_path/Qwen/Qwen3-32B \
+    --tensor-parallel-size 4 \
+    --served-model-name "qwen" \
+    --gpu-memory-utilization 0.8 \
+    --host 0.0.0.0 \
+    --port 8002
+```
+
+**2.** 在节点2上部署Executor服务：
+``` bash
+export VLLM_USE_FLASHINFER_SAMPLER=0
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+vllm serve /your_path/Executor \
+    --tensor-parallel-size 4 \
+    --served-model-name "qwen" \
+    --gpu-memory-utilization 0.8 \
+    --host 0.0.0.0 \
+    --port 8002
+```
+打开 `/Serve/MIA-TTRL`，配置运行脚本 `serve_streaming.sh`:
+- `AGENT_URL`: `Executor`服务的`URL`
+- `SERVICE_URL`: 文本搜索（离线/在线）服务的`URL`
+- `TEST_CACHE_DIR`: 图搜图缓存路径
+- `MAX_LLM_CALL_PER_RUN`: `Executor`与工具交互的最大轮数
+- `MEMORY_URL`: `Memory Maneger`服务的`URL`
+- `TTRL_SAVE`: 探索期间输出路径
+
+
+其中，在 `/Serve/MIA-TTRL/call_agent.py` 对文本搜索的设置（请选择其中一个）：
+``` python
+from tool_search_local import *   # 离线文本搜索
+from tool_serper import *   # 在线文本搜索
+```
+
+如果运行过程中出现显存不足，可以修改 `/Serve/MIA-TTRL/agent_serve_ttrl_streaming.py` 中加载 `embedding` 的设备为 `cpu` ，即：
+``` bash
+class MemoryProcessor:
+    def __init__(self):
+        """Initialize the OpenAI client based on model configuration."""
+        self.model_name = MODEL_NAME
+        bert_path = "/your_path/bert/sup-simcse-bert-base-uncased"
+        # self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cpu" # 取消自适应，始终以cpu加载
+```
+
+**3.** 配置服务端脚本 `/TTRL-streaming/run_streaming_ttrl_server.sh`：
+
+- `JUDGE_URL`: `judge`服务，填 `your_url/8002/v1`
+- `TTRL_AGENT_BASE`: `TTRL-streaming`的服务，填 `your_url/5000`
+- `GT_REWARD_URL`: 接收奖励信号的服务，填 `your_url/5000/plan`
+- `WANDB_API_KEY`: `WandB API` 密钥（可选）
+- `SAVE_CHECKPOINT_DIR`: 模型保存路径
+- `REF_MODEL_PATH`: 初始Planner路径
+- `data.train_batch_size`: 更新参数时的`batch_size`
+- `actor_rollout_ref.actor.optim.lr`: 更新参数时的学习率
+- `actor_rollout_ref.rollout.n`: `GRPO`方法的`rollout`次数
+
+在节点3上启动
+``` bash
+bash run_streaming_ttrl_server.sh
+```
+
+**4.** 配置奖励服务（用户反馈） `/TTRL-streaming/`：
+
+- `TTRL-streaming/run_gt_reward_server.sh`
+  - `JUDGE_URL`: `judge`服务，填 `your_url/8002/v1`
+- `TTRL-streaming/gt_reward_core.py`：可以修改为自定义的用户反馈/奖励模式
+
+在节点3上启动
+``` bash
+bash run_gt_reward_server.sh
+```
+
+**5.** 配置客户端脚本 `/TTRL-streaming/run_streaming_ttrl_client.sh`：
+
+- `JUDGE_URL`: `judge`服务，填 `your_url/8002/v1`
+- `TTRL_AGENT_BASE`: `TTRL-streaming`的服务，填 `your_url/5000`
+- `GT_REWARD_URL`: 接收奖励信号的服务，填 `your_url/5000/plan`
+- `REF_MODEL_PATH`: 初始Planner路径
+- `TTRL_SERVER`: `veRL`服务端的`url`，填 `http://127.0.0.1:8765`
+- `DATASET_TRAIN`: 数据集路径
+- `SAVE_STEP`: 策略模型的保存间隔
+- `CLIENT_BATCH_SIZE`: 客户端并行数，必须被服务端设置的`data.train_batch_size`（更新一次所需最小样本量）整除
+
+
+在节点3上启动
+``` bash
+bash run_streaming_ttrl_client.sh
 ```
 
 ## ⚖️ 许可
