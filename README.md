@@ -46,7 +46,7 @@ Our comprehensive evaluation across multiple benchmarks demonstrates that **MIA*
 
 ## 🦞 OpenClaw Skills
 
-We also provide two MIA versions of OpenClaw skills in [Original Version](https://clawhub.ai/jingyangqiao/mia) and [Trust-Worthy Version](https://clawhub.ai/sii-yucheng2002/mia-trust), which not only integrate MIA memory framework, but also include trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos.
+We also provide two MIA versions of OpenClaw skills in [Original Version](https://clawhub.ai/jingyangqiao/mia) and [Trust-Worthy Version](https://clawhub.ai/sii-yucheng2002/mia-trust), which not only integrate MIA memory framework, but also include trust-worthy judgment mechanism. Here are the MIA memory and trust-worthy demos. In addition, we also provide the reference code for training the Planner model based on the online-talking with OpenClaw bot in [Training Version](https://github.com/JingyangQiao/Openclaw-MIA) and the lightweight FP8 model checkpoints in [Lightweight Model](https://huggingface.co/LightningCreeper/MIA/tree/main/Executor-FP8-BLOCK).
 
 MIA Memory Demo:
 <div align="center">
