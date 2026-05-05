@@ -42,7 +42,7 @@
 
 ## 🦞 OpenClaw技能
 
-我们也提供了两个基于MIA的OpenClaw技能版本: [纯净版本](https://clawhub.ai/jingyangqiao/mia)和[可信版本](https://clawhub.ai/sii-yucheng2002/mia-trust)，它们不仅整合了MIA存储框架，还包含了基于可信驱动的校正机制。以下是MIA存储和可信的演示示例。
+我们也提供了两个基于MIA的OpenClaw技能版本: [纯净版本](https://clawhub.ai/jingyangqiao/mia)和[可信版本](https://clawhub.ai/sii-yucheng2002/mia-trust)，它们不仅整合了MIA存储框架，还包含了基于可信驱动的校正机制。以下是MIA存储和可信的演示示例。此外，我们还提供了用于训练规划器模型的参考代码，该代码能够通过与OpenClaw机器人进行在线对话来更新规划器模型：[训练版本](https://github.com/JingyangQiao/Openclaw-MIA)以及轻量级FP8模型检查点：[轻量级模型](https://huggingface.co/LightningCreeper/MIA/tree/main/Executor-FP8-BLOCK)。
 
 **存储示例：**
 
